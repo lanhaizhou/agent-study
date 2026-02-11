@@ -3,12 +3,18 @@
  * 演示 LangChain 中「模型 -> 返回 tool_calls -> 执行工具 -> 把结果作为 ToolMessage 再调模型」的循环。
  */
 
+import path from "path";
+import { fileURLToPath } from "url";
 import "./loadEnv.mjs";
 import { ChatOpenAI } from "@langchain/openai";
 import { tool } from "@langchain/core/tools";
+// 对话消息类型：SystemMessage=系统设定（身份/规则），HumanMessage=用户输入，ToolMessage=工具执行结果（回传给模型，需带 tool_call_id）
 import { HumanMessage, SystemMessage, ToolMessage } from "@langchain/core/messages";
 import fs from "node:fs/promises";
 import { z } from "zod";
+
+// 本脚本所在项目根目录（chapter/2/tool-test），相对路径的 filePath 都基于此解析，避免从仓库根运行时的 cwd 问题
+const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 // --- 大模型配置 ---
 const model = new ChatOpenAI({
@@ -24,7 +30,8 @@ const model = new ChatOpenAI({
 // tool( 执行函数, { name, description, schema } )：schema 用 zod 声明入参，供模型生成合规的 tool_calls
 const readFileTool = tool(
   async ({ filePath }) => {
-    const content = await fs.readFile(filePath, "utf-8");
+    const fullPath = path.isAbsolute(filePath) ? filePath : path.join(projectRoot, filePath);
+    const content = await fs.readFile(fullPath, "utf-8");
     console.log(`  [工具调用] read_file("${filePath}") - 成功读取 ${content.length} 字节`);
     return `文件内容:\n${content}`;
   },
@@ -59,6 +66,7 @@ const messages = [
 // --- Tool 调用循环 ---
 // 第一次调用：模型可能直接返回 tool_calls（要执行 read_file），而不是最终答案
 let response = await modelWithTools.invoke(messages);
+console.log("response 111", response);
 
 // 只要模型返回了 tool_calls，就执行工具、把结果作为 ToolMessage 追加、再调一次模型，直到模型不再请求工具
 while (response.tool_calls?.length > 0) {
