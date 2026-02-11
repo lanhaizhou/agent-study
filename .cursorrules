@@ -1,3 +1,6 @@
+## 依赖管理
+- **安装/更新依赖统一使用 pnpm**，不要使用 npm 或 yarn
+
 ## Git Commit Message 规范
 - **所有 commit message 必须使用中文**
 - 采用类似 Conventional Commits 的格式，必须带类型前缀：`<type>(<scope>): 简短描述`
