@@ -1,0 +1,6 @@
+## Git Commit Message 规范
+- **所有 commit message 必须使用中文**
+- 采用类似 Conventional Commits 的格式，必须带类型前缀：`<type>(<scope>): 简短描述`
+- **type** 常用取值：`feat`（新功能）、`fix`（修复）、`docs`（文档）、`style`（格式/样式）、`refactor`（重构）、`test`（测试）、`chore`（构建/工具等）
+- **scope** 可选，表示影响范围（如子项目名或模块名）
+- 简短描述 50 字以内，使用中文；详细说明可选，用空行与首行分隔
