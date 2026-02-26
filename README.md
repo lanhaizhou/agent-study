@@ -16,13 +16,22 @@ agent-study/
   docs/                    # 学习笔记与总结
     1. Agent 开发要学什么.md
     2. 从 Tool 开始：让大模型自动调工具读文件.md
+    3. 实现 mini cursor：大模型自动调用 tool 执行命令.md
   chapter/
     2/
       tool-test/            # 第 2 章：Tool 示例（读文件）
         src/
-          hello-langchain.mjs   # 简单对话
-          loadEnv.mjs           # 根目录 .env 加载（公共）
+          hello-langchain.mjs
+          loadEnv.mjs
           tool-file-read.mjs    # read_file Tool + 调用循环
+    3/
+      tool-test/            # 第 3 章：mini cursor（多 Tool）
+        src/
+          loadEnv.mjs
+          all-tools.mjs         # read_file / write_file / execute_command / list_directory
+          mini-cursor.mjs       # Agent 循环：根据 prompt 创建项目、装依赖、跑服务
+          node-exec.mjs         # spawn 执行命令示例
+          tool-file-read.mjs
   .env                     # API 等环境变量（不提交，见下方）
   pnpm-workspace.yaml
   package.json             # 根脚本与公共依赖
@@ -48,18 +57,21 @@ agent-study/
 | --- | --- |
 | `pnpm ch2` | 运行简单对话示例（hello-langchain） |
 | `pnpm ch2:read` | 运行 Tool 示例：读文件并解释代码（tool-file-read） |
+| `pnpm ch3:exec` | 运行 spawn 执行命令示例（node-exec） |
+| `pnpm ch3:miniCursor` | 运行 mini cursor：多 Tool Agent（创建项目、写文件、装依赖、跑服务） |
 | `pnpm format` | 使用 oxfmt 格式化代码 |
 | `pnpm format:check` | 仅检查格式（适合 CI） |
 | `pnpm lint` | 使用 oxlint 做代码校验 |
 
-也可进入 `chapter/2/tool-test` 后执行 `pnpm run dev`（默认跑 hello-langchain）。
+也可进入对应 `chapter/N/tool-test` 后执行 `pnpm run dev`（以该章入口为准）。
 
 ## 文档列表
 
 | 序号 | 主题 | 文件 |
 | --- | --- | --- |
 | 1 | Agent 开发要学什么 | [docs/1. Agent 开发要学什么.md](docs/1.%20Agent%20开发要学什么.md) |
-| 2 | 从 Tool 开始：让大模型自动调工具读文件 | [docs/2. 从 Tool 开始：让大模型自动调工具读文件.md](docs/2.从%20Tool%20开始：让大模型自动调工具读文件.md) |
+| 2 | 从 Tool 开始：让大模型自动调工具读文件 | [docs/2.从 Tool 开始：让大模型自动调工具读文件.md](docs/2.从%20Tool%20开始：让大模型自动调工具读文件.md) |
+| 3 | 实现 mini cursor：大模型自动调用 tool 执行命令 | [docs/3.实现 mini cursor：大模型自动调用 tool 执行命令.md](docs/3.实现%20mini%20cursor：大模型自动调用%20tool%20执行命令.md) |
 
 ## 学习主线
 
