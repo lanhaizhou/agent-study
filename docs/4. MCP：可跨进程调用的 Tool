@@ -1,0 +1,55 @@
+# MCP：可跨进程调用的 Tool - 总结
+
+对应代码：`chapter/4/tool-test/src/` 下的 `my-mcp-server.mjs`（MCP Server）、`langchain-mcp-test.mjs`（LangChain 调用 MCP）。环境变量由根目录 `.env` + `import 'dotenv/config'` 加载。
+
+---
+
+## 一、为什么需要 MCP
+
+- 此前写的 Tool 与 Agent 同进程、同语言（如都是 Node）；若已有工具用 Java、Python、Rust 或独立 HTTP 服务实现，要接入就需要统一约定。
+- 通过**统一协议**约定「如何发现工具、如何传参、如何返回结果」，即可跨进程、跨语言调用：本地用 **stdio** 与子进程通信，远程用 **http** 连服务。
+- 该协议即 **MCP（Model Context Protocol）**：为 Model 扩展 Context（能力与信息）的通用协议。由 Anthropic 发起，现由 Linux 基金会维护，与具体模型/厂商中立。
+
+## 二、MCP 的角色与传输
+
+- **MCP Client**：你的 AI Agent（如 Cursor、LangChain 应用），通过 MCP 协议调用各种 **MCP Server**。
+- **MCP Server**：暴露 **Tool**（可被 call）和 **Resource**（可被 read，多为静态文档/说明）。
+- **传输**：本地进程用 **stdio**（标准输入输出）；远程用 **http**。同一协议，两种传输方式。
+
+## 三、手写 MCP Server（my-mcp-server.mjs）
+
+- 依赖：`@modelcontextprotocol/sdk`（包名即体现协议中立）。
+- **McpServer**：`new McpServer({ name, version })`，再挂载传输。
+- **registerTool(name, { description, inputSchema }, handler)**：与 LangChain 的 tool 类似，name/description/schema 供 Client 与模型理解；handler 入参与 schema 一致，返回 `{ content: [{ type: 'text', text }] }`。
+- **registerResource(名称, uri, { description, mimeType }, 返回内容函数)**：Resource 用于「读」静态信息；返回 `{ contents: [{ uri, mimeType, text }] }`。
+- **传输**：`StdioServerTransport()` 表示用 stdio 与启动本进程的 Client 通信；也可用 HTTP 等其它 Transport。
+- 示例中实现了一个「查询用户」的 Tool 和一个「使用指南」的 Resource，便于在 Cursor 或 LangChain 中联调。
+
+## 四、在 Cursor 中使用 MCP Server
+
+- 在 Cursor 的 MCP 配置（如 `.cursor/mcp.json`）中增加一项：`command`（如 `node`）、`args`（如脚本绝对路径或可解析路径）。
+- Cursor 会按配置启动该进程，经 stdio 按 MCP 协议通信；对话中模型可自动选择并调用该 Server 的 Tool。Resource 主要用于「引用」到上下文（如写 prompt、查文档），而不是像 Tool 那样被「执行」。
+
+## 五、在 LangChain 中调用 MCP（langchain-mcp-test.mjs）
+
+- 依赖：`@langchain/mcp-adapters`。
+- **MultiServerMCPClient**：配置多个 MCP Server，例如 `{ "my-mcp-server": { command: "node", args: [pathToMyMcpServer] } }`，与 Cursor 配置方式一致；Client 会启动子进程并通过 stdio 通信。
+- **getTools()**：将 MCP Server 暴露的 Tool 拉取为 LangChain 的 tool 列表；**model.bindTools(tools)** 后，与前面章节的 Tool 循环一致：invoke → 若有 tool_calls 则执行并追加 **ToolMessage** → 再 invoke，直到无 tool_calls。
+- 用完后建议 **mcpClient.close()**，避免子进程未退出。
+- **Resource 用法**：`mcpClient.listResources()` 列出各 Server 的 Resource；`mcpClient.readResource(serverName, resource.uri)` 读取内容；将读到的文本放进 **SystemMessage**（或 HumanMessage）作为上下文，模型即可基于该信息回答（如「MCP Server 的使用指南是什么」）。
+
+## 六、Tool 与 Resource 的区别
+
+| 能力   | 用途           | 典型用法                         |
+|--------|----------------|----------------------------------|
+| **Tool**   | 执行操作、查询动态数据 | 被模型「调用」，返回结果再参与后续推理 |
+| **Resource** | 提供静态/文档类信息   | 被「读取」后写入 System/Human 消息，作为上下文 |
+
+- 在 LangChain 里，MCP 的 Tool 经 adapters 转成普通 tool，用法与本章 2、3 节的 tool 无差别；Resource 不直接参与 bindTools，而是作为上下文注入。
+
+## 七、总结
+
+- **MCP**：可跨进程、跨语言调用的 Tool 协议；本地 stdio、远程 http；协议中立，由 Linux 基金会维护。
+- **写 Server**：`@modelcontextprotocol/sdk`，McpServer + registerTool + registerResource + Transport（如 Stdio）。
+- **用 Server**：Cursor 中配置 command/args；LangChain 中用 **@langchain/mcp-adapters** 的 MultiServerMCPClient + getTools，再 bindTools，沿用既有 Tool 循环；Resource 通过 listResources/readResource 取内容后放入 System/Human 消息。
+- **本质**：MCP 仍是 Tool 的一种实现方式，区别在于「跨进程、统一协议」；不需要跨进程时，同进程内直接写 LangChain tool 更简单、无进程通信开销。

@@ -7,6 +7,7 @@
     "ch2:read": "node chapter/2/tool-test/src/tool-file-read.mjs",
     "ch3:exec": "node chapter/3/tool-test/src/node-exec.mjs",
     "ch3:miniCursor": "node chapter/3/tool-test/src/mini-cursor.mjs",
+    "ch4:mcp": "node chapter/4/tool-test/src/langchain-mcp-test.mjs",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
     "lint": "oxlint"
