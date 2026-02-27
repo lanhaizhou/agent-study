@@ -6,6 +6,7 @@
 
 - **运行时**：Node（ESM）
 - **AI**：LangChain（单 Agent）、LangGraph（多 Agent，后续）
+- **Tool 协议**：MCP（Model Context Protocol，跨进程调用）
 - **包管理**：pnpm（monorepo）
 - **格式与校验**：oxfmt、oxlint
 
@@ -17,6 +18,7 @@ agent-study/
     1. Agent 开发要学什么.md
     2. 从 Tool 开始：让大模型自动调工具读文件.md
     3. 实现 mini cursor：大模型自动调用 tool 执行命令.md
+    4. MCP：可跨进程调用的 Tool.md
   chapter/
     2/
       tool-test/            # 第 2 章：Tool 示例（读文件）
@@ -32,6 +34,12 @@ agent-study/
           mini-cursor.mjs       # Agent 循环：根据 prompt 创建项目、装依赖、跑服务
           node-exec.mjs         # spawn 执行命令示例
           tool-file-read.mjs
+    4/
+      tool-test/            # 第 4 章：MCP（跨进程 Tool）
+        src/
+          langchain-mcp-test.mjs  # LangChain 调用 MCP 工具示例
+          my-mcp-server.mjs       # 自定义 MCP 服务
+          route-to-file-mcp.mjs   # 路由到文件的 MCP 封装
   .env                     # API 等环境变量（不提交，见下方）
   pnpm-workspace.yaml
   package.json             # 根脚本与公共依赖
@@ -59,6 +67,7 @@ agent-study/
 | `pnpm ch2:read` | 运行 Tool 示例：读文件并解释代码（tool-file-read） |
 | `pnpm ch3:exec` | 运行 spawn 执行命令示例（node-exec） |
 | `pnpm ch3:miniCursor` | 运行 mini cursor：多 Tool Agent（创建项目、写文件、装依赖、跑服务） |
+| `pnpm ch4:mcp` | 运行 MCP 示例：LangChain 调用 MCP 工具 |
 | `pnpm format` | 使用 oxfmt 格式化代码 |
 | `pnpm format:check` | 仅检查格式（适合 CI） |
 | `pnpm lint` | 使用 oxlint 做代码校验 |
@@ -71,7 +80,8 @@ agent-study/
 | --- | --- | --- |
 | 1 | Agent 开发要学什么 | [docs/1. Agent 开发要学什么.md](docs/1.%20Agent%20开发要学什么.md) |
 | 2 | 从 Tool 开始：让大模型自动调工具读文件 | [docs/2.从 Tool 开始：让大模型自动调工具读文件.md](docs/2.从%20Tool%20开始：让大模型自动调工具读文件.md) |
-| 3 | 实现 mini cursor：大模型自动调用 tool 执行命令 | [docs/3.实现 mini cursor：大模型自动调用 tool 执行命令.md](docs/3.实现%20mini%20cursor：大模型自动调用%20tool%20执行命令.md) |
+| 3 | 实现 mini cursor：大模型自动调用 tool 执行命令 | [docs/3. 实现 mini cursor：大模型自动调用 tool 执行命令.md](docs/3.%20实现%20mini%20cursor：大模型自动调用%20tool%20执行命令.md) |
+| 4 | MCP：可跨进程调用的 Tool | [docs/4. MCP：可跨进程调用的 Tool.md](docs/4.%20MCP：可跨进程调用的%20Tool.md) |
 
 ## 学习主线
 
