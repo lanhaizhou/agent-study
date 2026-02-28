@@ -19,6 +19,8 @@ agent-study/
     2. 从 Tool 开始：让大模型自动调工具读文件.md
     3. 实现 mini cursor：大模型自动调用 tool 执行命令.md
     4. MCP：可跨进程调用的 Tool.md
+    5. 高德 MCP + 浏览器 MCP：LangChain 复用别人的 MCP Server 有多爽！.md
+    6. RAG：把文档向量化，基于向量实现真正的语义搜索.md
   chapter/
     2/
       tool-test/            # 第 2 章：Tool 示例（读文件）
@@ -40,6 +42,14 @@ agent-study/
           langchain-mcp-test.mjs  # LangChain 调用 MCP 工具示例
           my-mcp-server.mjs       # 自定义 MCP 服务
           route-to-file-mcp.mjs   # 路由到文件的 MCP 封装
+    5/
+      tool-test/            # 第 5 章：复用他人 MCP（高德、FileSystem、Chrome DevTools）
+        src/
+          mcp-test.mjs            # 多 MCP Server 配置与 Agent 循环
+    6/
+      rag-test/             # 第 6 章：RAG（向量检索 + 增强生成）
+        src/
+          hello-rag.mjs           # 文档向量化、相似度检索、拼 prompt 生成回答
   .env                     # API 等环境变量（不提交，见下方）
   pnpm-workspace.yaml
   package.json             # 根脚本与公共依赖
@@ -56,6 +66,8 @@ agent-study/
    OPENAI_API_KEY=你的 API Key
    OPENAI_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
    MODEL_NAME=qwen-coder-turbo
+   # 第 6 章 RAG 需配置嵌入模型（可与 MODEL_NAME 不同）
+   EMBEDDINGS_MODEL_NAME=text-embedding-v3
    ```
 3. `.env` 已加入 `.gitignore`，请勿提交。
 
@@ -68,11 +80,13 @@ agent-study/
 | `pnpm ch3:exec` | 运行 spawn 执行命令示例（node-exec） |
 | `pnpm ch3:miniCursor` | 运行 mini cursor：多 Tool Agent（创建项目、写文件、装依赖、跑服务） |
 | `pnpm ch4:mcp` | 运行 MCP 示例：LangChain 调用 MCP 工具 |
+| `pnpm ch5:mcp` | 运行多 MCP 示例：高德 / FileSystem / Chrome DevTools 等 |
+| `pnpm ch6:rag` | 运行 RAG 示例：向量检索 + 增强 prompt 生成回答 |
 | `pnpm format` | 使用 oxfmt 格式化代码 |
 | `pnpm format:check` | 仅检查格式（适合 CI） |
 | `pnpm lint` | 使用 oxlint 做代码校验 |
 
-也可进入对应 `chapter/N/tool-test` 后执行 `pnpm run dev`（以该章入口为准）。
+也可进入对应 `chapter/N/tool-test` 或 `chapter/6/rag-test` 后执行 `pnpm run dev`（以该章入口为准）。
 
 ## 文档列表
 
@@ -82,6 +96,8 @@ agent-study/
 | 2 | 从 Tool 开始：让大模型自动调工具读文件 | [docs/2.从 Tool 开始：让大模型自动调工具读文件.md](docs/2.从%20Tool%20开始：让大模型自动调工具读文件.md) |
 | 3 | 实现 mini cursor：大模型自动调用 tool 执行命令 | [docs/3. 实现 mini cursor：大模型自动调用 tool 执行命令.md](docs/3.%20实现%20mini%20cursor：大模型自动调用%20tool%20执行命令.md) |
 | 4 | MCP：可跨进程调用的 Tool | [docs/4. MCP：可跨进程调用的 Tool.md](docs/4.%20MCP：可跨进程调用的%20Tool.md) |
+| 5 | 高德 MCP + 浏览器 MCP：LangChain 复用别人的 MCP Server | [docs/5. 高德 MCP + 浏览器 MCP：LangChain 复用别人的 MCP Server 有多爽！.md](docs/5.%20高德%20MCP%20+%20浏览器%20MCP：LangChain%20复用别人的%20MCP%20Server%20有多爽！.md) |
+| 6 | RAG：把文档向量化，基于向量实现真正的语义搜索 | [docs/6. RAG：把文档向量化，基于向量实现真正的语义搜索.md](docs/6.%20RAG：把文档向量化，基于向量实现真正的语义搜索.md) |
 
 ## 学习主线
 
