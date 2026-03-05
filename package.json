@@ -10,6 +10,7 @@
     "ch4:mcp": "node chapter/4/tool-test/src/langchain-mcp-test.mjs",
     "ch5:mcp": "node chapter/5/tool-test/src/mcp-test.mjs",
     "ch6:rag": "node chapter/6/rag-test/src/hello-rag.mjs",
+    "ch7:rag": "node chapter/7/rag-test/src/loader-and-splitter.mjs",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
     "lint": "oxlint"
