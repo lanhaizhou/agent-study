@@ -13,9 +13,49 @@
 
 import fs from "node:fs/promises";
 import path from "node:path";
+import { MultiServerMCPClient } from "@langchain/mcp-adapters";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
+
+/** 通过 filesystem MCP 读取文件内容。成功返回 { content }，失败返回 { error: string } */
+const MAX_PREVIEW_LINES = 200;
+const MAX_PREVIEW_CHARS = 50 * 1024;
+
+async function readFileViaFilesystemMCP(filePath, allowedRoot) {
+  const mcpClient = new MultiServerMCPClient({
+    mcpServers: {
+      filesystem: {
+        command: "npx",
+        args: ["-y", "@modelcontextprotocol/server-filesystem", allowedRoot],
+      },
+    },
+  });
+  try {
+    const tools = await mcpClient.getTools();
+    const readTool = tools.find((t) => t.name === "read_text_file");
+    if (!readTool) return { error: "未找到 read_text_file 工具" };
+    const result = await readTool.invoke({ path: filePath });
+    let content =
+      typeof result === "string"
+        ? result
+        : result?.content ?? result?.text ?? null;
+    if (content == null) return { error: "读取结果为空" };
+    const lines = content.split("\n");
+    if (lines.length > MAX_PREVIEW_LINES || content.length > MAX_PREVIEW_CHARS) {
+      content = lines.slice(0, MAX_PREVIEW_LINES).join("\n");
+      if (content.length > MAX_PREVIEW_CHARS) {
+        content = content.slice(0, MAX_PREVIEW_CHARS);
+      }
+      content += `\n\n... 已截断（共 ${lines.length} 行）`;
+    }
+    return { content };
+  } catch (err) {
+    return { error: err?.message ?? String(err) };
+  } finally {
+    await mcpClient.close();
+  }
+}
 
 const DEFAULT_PROJECT_ROOT =
   process.env.ROUTE_TO_FILE_PROJECT_ROOT || process.cwd();
@@ -312,11 +352,20 @@ server.registerTool(
     }
 
     const relativePath = path.relative(root, foundPath);
+    let bodyText = `路由 "${routePath}" 对应页面源码（${sourceNote}）：\n\n文件路径：${foundPath}\n相对路径：${relativePath}\n\n`;
+
+    const readResult = await readFileViaFilesystemMCP(foundPath, root);
+    if (readResult.content != null) {
+      bodyText += `--- 文件内容（通过 filesystem MCP 读取） ---\n\n${readResult.content}\n\n--- 以上为文件内容，可在编辑器中直接打开上述路径进行编辑。`;
+    } else {
+      bodyText += `通过 filesystem MCP 读取文件内容失败：${readResult.error ?? "未知错误"}。可在编辑器中直接打开上述路径进行编辑。`;
+    }
+
     return {
       content: [
         {
           type: "text",
-          text: `路由 "${routePath}" 对应页面源码（${sourceNote}）：\n\n文件路径：${foundPath}\n相对路径：${relativePath}\n\n可在编辑器中直接打开上述路径进行编辑。`,
+          text: bodyText,
         },
       ],
     };
