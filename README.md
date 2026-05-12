@@ -73,31 +73,31 @@ agent-study/
 
 ## 常用脚本（根目录执行）
 
-| 命令 | 说明 |
-| --- | --- |
-| `pnpm ch2` | 运行简单对话示例（hello-langchain） |
-| `pnpm ch2:read` | 运行 Tool 示例：读文件并解释代码（tool-file-read） |
-| `pnpm ch3:exec` | 运行 spawn 执行命令示例（node-exec） |
+| 命令                  | 说明                                                                |
+| --------------------- | ------------------------------------------------------------------- |
+| `pnpm ch2`            | 运行简单对话示例（hello-langchain）                                 |
+| `pnpm ch2:read`       | 运行 Tool 示例：读文件并解释代码（tool-file-read）                  |
+| `pnpm ch3:exec`       | 运行 spawn 执行命令示例（node-exec）                                |
 | `pnpm ch3:miniCursor` | 运行 mini cursor：多 Tool Agent（创建项目、写文件、装依赖、跑服务） |
-| `pnpm ch4:mcp` | 运行 MCP 示例：LangChain 调用 MCP 工具 |
-| `pnpm ch5:mcp` | 运行多 MCP 示例：高德 / FileSystem / Chrome DevTools 等 |
-| `pnpm ch6:rag` | 运行 RAG 示例：向量检索 + 增强 prompt 生成回答 |
-| `pnpm format` | 使用 oxfmt 格式化代码 |
-| `pnpm format:check` | 仅检查格式（适合 CI） |
-| `pnpm lint` | 使用 oxlint 做代码校验 |
+| `pnpm ch4:mcp`        | 运行 MCP 示例：LangChain 调用 MCP 工具                              |
+| `pnpm ch5:mcp`        | 运行多 MCP 示例：高德 / FileSystem / Chrome DevTools 等             |
+| `pnpm ch6:rag`        | 运行 RAG 示例：向量检索 + 增强 prompt 生成回答                      |
+| `pnpm format`         | 使用 oxfmt 格式化代码                                               |
+| `pnpm format:check`   | 仅检查格式（适合 CI）                                               |
+| `pnpm lint`           | 使用 oxlint 做代码校验                                              |
 
 也可进入对应 `chapter/N/tool-test` 或 `chapter/6/rag-test` 后执行 `pnpm run dev`（以该章入口为准）。
 
 ## 文档列表
 
-| 序号 | 主题 | 文件 |
-| --- | --- | --- |
-| 1 | Agent 开发要学什么 | [docs/1. Agent 开发要学什么.md](docs/1.%20Agent%20开发要学什么.md) |
-| 2 | 从 Tool 开始：让大模型自动调工具读文件 | [docs/2.从 Tool 开始：让大模型自动调工具读文件.md](docs/2.从%20Tool%20开始：让大模型自动调工具读文件.md) |
-| 3 | 实现 mini cursor：大模型自动调用 tool 执行命令 | [docs/3. 实现 mini cursor：大模型自动调用 tool 执行命令.md](docs/3.%20实现%20mini%20cursor：大模型自动调用%20tool%20执行命令.md) |
-| 4 | MCP：可跨进程调用的 Tool | [docs/4. MCP：可跨进程调用的 Tool.md](docs/4.%20MCP：可跨进程调用的%20Tool.md) |
-| 5 | 高德 MCP + 浏览器 MCP：LangChain 复用别人的 MCP Server | [docs/5. 高德 MCP + 浏览器 MCP：LangChain 复用别人的 MCP Server 有多爽！.md](docs/5.%20高德%20MCP%20+%20浏览器%20MCP：LangChain%20复用别人的%20MCP%20Server%20有多爽！.md) |
-| 6 | RAG：把文档向量化，基于向量实现真正的语义搜索 | [docs/6. RAG：把文档向量化，基于向量实现真正的语义搜索.md](docs/6.%20RAG：把文档向量化，基于向量实现真正的语义搜索.md) |
+| 序号 | 主题                                                   | 文件                                                                                                                                                                       |
+| ---- | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1    | Agent 开发要学什么                                     | [docs/1. Agent 开发要学什么.md](docs/1.%20Agent%20开发要学什么.md)                                                                                                         |
+| 2    | 从 Tool 开始：让大模型自动调工具读文件                 | [docs/2.从 Tool 开始：让大模型自动调工具读文件.md](docs/2.从%20Tool%20开始：让大模型自动调工具读文件.md)                                                                   |
+| 3    | 实现 mini cursor：大模型自动调用 tool 执行命令         | [docs/3. 实现 mini cursor：大模型自动调用 tool 执行命令.md](docs/3.%20实现%20mini%20cursor：大模型自动调用%20tool%20执行命令.md)                                           |
+| 4    | MCP：可跨进程调用的 Tool                               | [docs/4. MCP：可跨进程调用的 Tool.md](docs/4.%20MCP：可跨进程调用的%20Tool.md)                                                                                             |
+| 5    | 高德 MCP + 浏览器 MCP：LangChain 复用别人的 MCP Server | [docs/5. 高德 MCP + 浏览器 MCP：LangChain 复用别人的 MCP Server 有多爽！.md](docs/5.%20高德%20MCP%20+%20浏览器%20MCP：LangChain%20复用别人的%20MCP%20Server%20有多爽！.md) |
+| 6    | RAG：把文档向量化，基于向量实现真正的语义搜索          | [docs/6. RAG：把文档向量化，基于向量实现真正的语义搜索.md](docs/6.%20RAG：把文档向量化，基于向量实现真正的语义搜索.md)                                                     |
 
 ## 学习主线
 

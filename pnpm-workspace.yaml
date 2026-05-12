@@ -1,2 +1,4 @@
 packages:
   - "chapter/*/*"
+allowBuilds:
+  protobufjs: false

@@ -35,10 +35,9 @@ const embeddings = new OpenAIEmbeddings({
 
 // Loader：从网页加载文档。CheerioWebBaseLoader 会请求 URL，用 Cheerio 解析 HTML，再按 selector 抽取正文
 // selector 指定要抽取的 DOM 选择器（如 ".main-area p" 表示主区域内的段落），合并为一个或多个 Document
-const cheerioLoader = new CheerioWebBaseLoader(
-  "https://juejin.cn/post/7233327509919547452",
-  { selector: ".main-area p" },
-);
+const cheerioLoader = new CheerioWebBaseLoader("https://juejin.cn/post/7233327509919547452", {
+  selector: ".main-area p",
+});
 
 const documents = await cheerioLoader.load();
 

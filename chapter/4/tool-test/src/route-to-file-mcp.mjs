@@ -36,10 +36,7 @@ async function readFileViaFilesystemMCP(filePath, allowedRoot) {
     const readTool = tools.find((t) => t.name === "read_text_file");
     if (!readTool) return { error: "未找到 read_text_file 工具" };
     const result = await readTool.invoke({ path: filePath });
-    let content =
-      typeof result === "string"
-        ? result
-        : result?.content ?? result?.text ?? null;
+    let content = typeof result === "string" ? result : (result?.content ?? result?.text ?? null);
     if (content == null) return { error: "读取结果为空" };
     const lines = content.split("\n");
     if (lines.length > MAX_PREVIEW_LINES || content.length > MAX_PREVIEW_CHARS) {
@@ -57,8 +54,7 @@ async function readFileViaFilesystemMCP(filePath, allowedRoot) {
   }
 }
 
-const DEFAULT_PROJECT_ROOT =
-  process.env.ROUTE_TO_FILE_PROJECT_ROOT || process.cwd();
+const DEFAULT_PROJECT_ROOT = process.env.ROUTE_TO_FILE_PROJECT_ROOT || process.cwd();
 
 const server = new McpServer({
   name: "route-to-file-mcp",
@@ -82,12 +78,7 @@ function* vueOrReactCandidates(projectRoot, segments, dirs) {
   if (segments.length === 0) return;
   const dirPath = path.join(projectRoot, ...segments);
   const baseName = path.basename(dirPath);
-  const exts = [
-    [".vue"],
-    [".tsx"],
-    [".jsx"],
-    [".js"],
-  ];
+  const exts = [[".vue"], [".tsx"], [".jsx"], [".js"]];
   for (const dir of dirs) {
     const base = path.join(projectRoot, dir);
     for (const [ext] of exts) {
@@ -247,7 +238,12 @@ async function collectPageFilesUnder(projectRoot, dir, conventionDir, base = "")
 async function searchByKeyword(projectRoot, routePath, keyword, conventions) {
   const terms = [
     ...extractSearchTermsFromRoute(routePath),
-    ...(keyword ? String(keyword).trim().split(/[\s,]+/).filter(Boolean) : []),
+    ...(keyword
+      ? String(keyword)
+          .trim()
+          .split(/[\s,]+/)
+          .filter(Boolean)
+      : []),
   ];
   const termsLower = [...new Set(terms)].map((t) => t.toLowerCase());
   if (termsLower.length === 0) return [];
@@ -345,7 +341,12 @@ server.registerTool(
         content: [
           {
             type: "text",
-            text: `未找到路由 "${routePath}" 对应的页面源码文件。\n项目根目录：${root}\n尝试路径（部分）：\n${candidatePaths.slice(0, 20).map((p) => `  - ${p}`).join("\n")}${candidatePaths.length > 20 ? "\n  ..." : ""}\n可尝试传入 keyword 参数（如页面名称、菜单名），在页面目录中按关键词查找；动态路由（如 /user/123）会先过滤掉数字/ID 段再参与匹配。`,
+            text: `未找到路由 "${routePath}" 对应的页面源码文件。\n项目根目录：${root}\n尝试路径（部分）：\n${candidatePaths
+              .slice(0, 20)
+              .map((p) => `  - ${p}`)
+              .join(
+                "\n",
+              )}${candidatePaths.length > 20 ? "\n  ..." : ""}\n可尝试传入 keyword 参数（如页面名称、菜单名），在页面目录中按关键词查找；动态路由（如 /user/123）会先过滤掉数字/ID 段再参与匹配。`,
           },
         ],
       };

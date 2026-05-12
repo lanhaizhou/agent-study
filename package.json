@@ -11,6 +11,11 @@
     "ch5:mcp": "node chapter/5/tool-test/src/mcp-test.mjs",
     "ch6:rag": "node chapter/6/rag-test/src/hello-rag.mjs",
     "ch7:rag": "node chapter/7/rag-test/src/loader-and-splitter.mjs",
+    "ch9:insert": "node chapter/9/milvus-test/src/insert.mjs",
+    "ch9:query": "node chapter/9/milvus-test/src/query.mjs",
+    "ch9:rag": "node chapter/9/milvus-test/src/rag.mjs",
+    "ch9:update": "node chapter/9/milvus-test/src/update.mjs",
+    "ch9:delete": "node chapter/9/milvus-test/src/delete.mjs",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
     "lint": "oxlint"
