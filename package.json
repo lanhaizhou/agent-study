@@ -16,6 +16,9 @@
     "ch9:rag": "node chapter/9/milvus-test/src/rag.mjs",
     "ch9:update": "node chapter/9/milvus-test/src/update.mjs",
     "ch9:delete": "node chapter/9/milvus-test/src/delete.mjs",
+    "ch10:ew": "node chapter/10/milvus-test/src/ebook-writer.mjs",
+    "ch10:eq": "node chapter/10/milvus-test/src/ebook-query.mjs",
+    "ch10:rag": "node chapter/10/milvus-test/src/ebook-reader-rag.mjs",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
     "lint": "oxlint"
