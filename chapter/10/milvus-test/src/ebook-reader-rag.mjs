@@ -173,7 +173,7 @@ async function main() {
       console.log("✓ 集合已处于加载状态\n");
     }
 
-    await answerEbookQuestion("鸠摩智会什么武功？", 5);
+    await answerEbookQuestion("段誉会什么武功？", 5);
   } catch (error) {
     console.error("错误:", error.message);
   }

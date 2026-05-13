@@ -43,6 +43,24 @@ importers:
         specifier: ^10.0.0
         version: 10.0.0
 
+  chapter/12/output-parser-test:
+    dependencies:
+      '@langchain/core':
+        specifier: ^1.1.29
+        version: 1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76))
+      '@langchain/openai':
+        specifier: ^1.2.11
+        version: 1.2.11(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(ws@8.19.0)
+      chalk:
+        specifier: ^5.6.2
+        version: 5.6.2
+      dotenv:
+        specifier: ^17.4.2
+        version: 17.4.2
+      zod:
+        specifier: ^3.25.76
+        version: 3.25.76
+
   chapter/2/tool-test:
     dependencies:
       '@langchain/core':
@@ -4404,7 +4422,7 @@ snapshots:
       isstream: 0.1.2
       jsonwebtoken: 9.0.3
       mime-types: 2.1.35
-      retry-axios: 2.6.0(axios@1.13.6)
+      retry-axios: 2.6.0(axios@1.13.6(debug@4.4.3))
       tough-cookie: 4.1.4
     transitivePeerDependencies:
       - supports-color
@@ -4823,7 +4841,7 @@ snapshots:
 
   requires-port@1.0.0: {}
 
-  retry-axios@2.6.0(axios@1.13.6):
+  retry-axios@2.6.0(axios@1.13.6(debug@4.4.3)):
     dependencies:
       axios: 1.13.6(debug@4.4.3)
 
