@@ -23,7 +23,7 @@ importers:
     dependencies:
       '@langchain/community':
         specifier: ^1.0.0
-        version: 1.1.20(@aws-crypto/sha256-js@5.2.0)(@aws-sdk/client-s3@3.1045.0)(@aws-sdk/credential-provider-node@3.972.39)(@browserbasehq/sdk@2.7.0)(@browserbasehq/stagehand@1.14.0(@playwright/test@1.58.2)(deepmerge@4.3.1)(dotenv@17.4.2)(openai@6.25.0(ws@5.2.4)(zod@3.25.76))(zod@3.25.76))(@ibm-cloud/watsonx-ai@1.7.8)(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@5.2.4)(zod@3.25.76)))(@opentelemetry/api@1.9.1)(@smithy/protocol-http@5.4.0)(@smithy/signature-v4@5.4.0)(@smithy/util-utf8@4.3.0)(@zilliz/milvus2-sdk-node@3.0.0)(cheerio@1.2.0)(epub2@3.0.2(ts-toolbelt@9.6.0))(fast-xml-parser@5.7.2)(html-to-text@10.0.0)(ibm-cloud-sdk-core@5.4.8)(jsonwebtoken@9.0.3)(lodash@4.18.1)(openai@6.25.0(ws@5.2.4)(zod@3.25.76))(playwright@1.58.2)(ws@5.2.4)
+        version: 1.1.20(@aws-crypto/sha256-js@5.2.0)(@aws-sdk/client-s3@3.1045.0)(@aws-sdk/credential-provider-node@3.972.39)(@browserbasehq/sdk@2.7.0)(@browserbasehq/stagehand@1.14.0(@playwright/test@1.58.2)(deepmerge@4.3.1)(dotenv@17.4.2)(openai@6.25.0(ws@5.2.4)(zod@3.25.76))(zod@3.25.76))(@ibm-cloud/watsonx-ai@1.7.8)(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@5.2.4)(zod@3.25.76)))(@opentelemetry/api@1.9.1)(@smithy/protocol-http@5.4.0)(@smithy/signature-v4@5.4.0)(@smithy/util-utf8@4.3.0)(@zilliz/milvus2-sdk-node@3.0.0)(cheerio@1.2.0)(epub2@3.0.2(ts-toolbelt@9.6.0))(fast-xml-parser@5.7.2)(html-to-text@10.0.0)(ibm-cloud-sdk-core@5.4.8)(jsonwebtoken@9.0.3)(lodash@4.18.1)(mysql2@3.22.3(@types/node@22.19.18))(openai@6.25.0(ws@5.2.4)(zod@3.25.76))(playwright@1.58.2)(ws@5.2.4)
       '@langchain/openai':
         specifier: ^1.2.11
         version: 1.2.11(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@5.2.4)(zod@3.25.76)))(ws@5.2.4)
@@ -60,6 +60,78 @@ importers:
       zod:
         specifier: ^3.25.76
         version: 3.25.76
+
+  chapter/13/output-parser-test:
+    dependencies:
+      '@langchain/core':
+        specifier: ^1.1.29
+        version: 1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76))
+      '@langchain/openai':
+        specifier: ^1.2.11
+        version: 1.2.11(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(ws@8.19.0)
+      chalk:
+        specifier: ^5.6.2
+        version: 5.6.2
+      dotenv:
+        specifier: ^17.4.2
+        version: 17.4.2
+      mysql2:
+        specifier: ^3.22.3
+        version: 3.22.3(@types/node@22.19.18)
+      zod:
+        specifier: ^3.25.76
+        version: 3.25.76
+      zod-to-json-schema:
+        specifier: ^3.25.2
+        version: 3.25.2(zod@3.25.76)
+
+  chapter/14/prompt-template-test:
+    dependencies:
+      '@langchain/core':
+        specifier: ^1.1.29
+        version: 1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76))
+      '@langchain/openai':
+        specifier: ^1.2.11
+        version: 1.2.11(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(ws@8.19.0)
+      chalk:
+        specifier: ^5.6.2
+        version: 5.6.2
+      dotenv:
+        specifier: ^17.4.2
+        version: 17.4.2
+      mysql2:
+        specifier: ^3.22.3
+        version: 3.22.3(@types/node@22.19.18)
+      zod:
+        specifier: ^3.25.76
+        version: 3.25.76
+      zod-to-json-schema:
+        specifier: ^3.25.2
+        version: 3.25.2(zod@3.25.76)
+
+  chapter/15/runnable-test:
+    dependencies:
+      '@langchain/core':
+        specifier: ^1.1.29
+        version: 1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76))
+      '@langchain/openai':
+        specifier: ^1.2.11
+        version: 1.2.11(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(ws@8.19.0)
+      chalk:
+        specifier: ^5.6.2
+        version: 5.6.2
+      dotenv:
+        specifier: ^17.4.2
+        version: 17.4.2
+      mysql2:
+        specifier: ^3.22.3
+        version: 3.22.3(@types/node@22.19.18)
+      zod:
+        specifier: ^3.25.76
+        version: 3.25.76
+      zod-to-json-schema:
+        specifier: ^3.25.2
+        version: 3.25.2(zod@3.25.76)
 
   chapter/2/tool-test:
     dependencies:
@@ -101,7 +173,7 @@ importers:
         version: 1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76))
       '@langchain/mcp-adapters':
         specifier: ^1.1.3
-        version: 1.1.3(@cfworker/json-schema@4.1.1)(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(@langchain/langgraph@1.2.0(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(zod-to-json-schema@3.25.1(zod@3.25.76))(zod@3.25.76))
+        version: 1.1.3(@cfworker/json-schema@4.1.1)(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(@langchain/langgraph@1.2.0(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(zod-to-json-schema@3.25.2(zod@3.25.76))(zod@3.25.76))
       '@langchain/openai':
         specifier: ^1.2.11
         version: 1.2.11(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(ws@8.19.0)
@@ -125,7 +197,7 @@ importers:
         version: 1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76))
       '@langchain/mcp-adapters':
         specifier: ^1.1.3
-        version: 1.1.3(@cfworker/json-schema@4.1.1)(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(@langchain/langgraph@1.2.0(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(zod-to-json-schema@3.25.1(zod@3.25.76))(zod@3.25.76))
+        version: 1.1.3(@cfworker/json-schema@4.1.1)(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(@langchain/langgraph@1.2.0(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(zod-to-json-schema@3.25.2(zod@3.25.76))(zod@3.25.76))
       '@langchain/openai':
         specifier: ^1.2.11
         version: 1.2.11(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(ws@8.19.0)
@@ -164,7 +236,7 @@ importers:
         version: 1.0.21(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(@opentelemetry/api@1.9.1)(cheerio@1.2.0)(openai@6.25.0(ws@8.19.0)(zod@3.25.76))(ws@8.19.0)
       '@langchain/community':
         specifier: ^1.1.20
-        version: 1.1.20(@aws-crypto/sha256-js@5.2.0)(@aws-sdk/client-s3@3.1045.0)(@aws-sdk/credential-provider-node@3.972.39)(@browserbasehq/sdk@2.7.0)(@browserbasehq/stagehand@1.14.0(@playwright/test@1.58.2)(deepmerge@4.3.1)(dotenv@16.6.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76))(zod@3.25.76))(@ibm-cloud/watsonx-ai@1.7.8)(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(@opentelemetry/api@1.9.1)(@smithy/protocol-http@5.4.0)(@smithy/signature-v4@5.4.0)(@smithy/util-utf8@4.3.0)(@zilliz/milvus2-sdk-node@3.0.0)(cheerio@1.2.0)(epub2@3.0.2(ts-toolbelt@9.6.0))(fast-xml-parser@5.7.2)(ibm-cloud-sdk-core@5.4.8)(jsonwebtoken@9.0.3)(lodash@4.18.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76))(playwright@1.58.2)(ws@8.19.0)
+        version: 1.1.20(@aws-crypto/sha256-js@5.2.0)(@aws-sdk/client-s3@3.1045.0)(@aws-sdk/credential-provider-node@3.972.39)(@browserbasehq/sdk@2.7.0)(@browserbasehq/stagehand@1.14.0(@playwright/test@1.58.2)(deepmerge@4.3.1)(dotenv@16.6.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76))(zod@3.25.76))(@ibm-cloud/watsonx-ai@1.7.8)(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(@opentelemetry/api@1.9.1)(@smithy/protocol-http@5.4.0)(@smithy/signature-v4@5.4.0)(@smithy/util-utf8@4.3.0)(@zilliz/milvus2-sdk-node@3.0.0)(cheerio@1.2.0)(epub2@3.0.2(ts-toolbelt@9.6.0))(fast-xml-parser@5.7.2)(ibm-cloud-sdk-core@5.4.8)(jsonwebtoken@9.0.3)(lodash@4.18.1)(mysql2@3.22.3(@types/node@22.19.18))(openai@6.25.0(ws@8.19.0)(zod@3.25.76))(playwright@1.58.2)(ws@8.19.0)
       '@langchain/core':
         specifier: ^1.1.29
         version: 1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76))
@@ -1435,6 +1507,10 @@ packages:
   asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
 
+  aws-ssl-profiles@1.1.2:
+    resolution: {integrity: sha512-NZKeq9AfyQvEeNlN0zSYAaWrmBffJh3IELMZfRpJVWgrpEbtEpnjvzqBPf+mxoI287JohRDoa+/nsfqqiZmF6g==}
+    engines: {node: '>= 6.0.0'}
+
   axios@1.13.6:
     resolution: {integrity: sha512-ChTCHMouEe2kn713WHbQGcuYrr6fXTBiu460OTwWrWob16g1bXn4vtz07Ope7ewMozJAnEquLk5lWQWtBig9DQ==}
 
@@ -1605,6 +1681,10 @@ packages:
   delayed-stream@1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
     engines: {node: '>=0.4.0'}
+
+  denque@2.1.0:
+    resolution: {integrity: sha512-HVQE3AAb/pxF8fQAoiqpvg9i3evqug3hoiwakOyZAwJm+6vZehbkYXZ0l4JxS+I3QxM97v5aaRNhj8v5oBhekw==}
+    engines: {node: '>=0.10'}
 
   depd@2.0.0:
     resolution: {integrity: sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==}
@@ -1801,6 +1881,9 @@ packages:
   function-bind@1.1.2:
     resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
 
+  generate-function@2.3.1:
+    resolution: {integrity: sha512-eeB5GfMNeevm/GRYq20ShmsaGcmI81kIX2K9XQx5miC8KdHaC6Jm0qQ8ZNeGOi7wYB8OsdxKs+Y2oVuTFuVwKQ==}
+
   generic-pool@3.9.0:
     resolution: {integrity: sha512-hymDOu5B53XvN4QT9dBmZxPX4CWhBPPLguTZ9MMFeFa/Kg0xWVfylOVNlJji/E7yTZWFd/q9GO5TxDLq156D7g==}
     engines: {node: '>= 4'}
@@ -1899,6 +1982,9 @@ packages:
 
   is-promise@4.0.0:
     resolution: {integrity: sha512-hvpoI6korhJMnej285dSg6nu1+e6uxs7zG3BYAm5byqDsgJNWwxzM6z6iZiAgQR4TJ30JmBTOwqZUw3WlyH3AQ==}
+
+  is-property@1.0.2:
+    resolution: {integrity: sha512-Ks/IoX00TtClbGQr4TWXemAnktAQvYB7HzcCxDGqEZU6oCmb2INHuOoKxbtR+HFkmYWBKv/dOZtGRiAjDhj92g==}
 
   is-stream@2.0.1:
     resolution: {integrity: sha512-hFoiJiTl63nn+kstHGBtewWSKnQLpyb155KHheA1l39uvtO9nWIop1p3udqPcUd/xbF1VLMO4n7OI6p7RbngDg==}
@@ -2023,6 +2109,10 @@ packages:
     resolution: {integrity: sha512-ERJq3FOzJTxBbFjZ7iDs+NiK4VI9Wz+RdrrAB8dio1oV+YvdPzUEE4QNiT2VD51DkIbCYRUUzCRkssXCHqSnKQ==}
     engines: {node: 14 || >=16.14}
 
+  lru.min@1.1.4:
+    resolution: {integrity: sha512-DqC6n3QQ77zdFpCMASA1a3Jlb64Hv2N2DciFGkO/4L9+q/IpIAuRlKOvCXabtRW6cQf8usbmM6BE/TOPysCdIA==}
+    engines: {bun: '>=1.0.0', deno: '>=1.30.0', node: '>=8.0.0'}
+
   math-expression-evaluator@2.0.7:
     resolution: {integrity: sha512-uwliJZ6BPHRq4eiqNWxZBDzKUiS5RIynFFcgchqhBOloVLVBpZpNG8jRYkedLcBvhph8TnRyWEuxPqiQcwIdog==}
 
@@ -2063,6 +2153,16 @@ packages:
   mustache@4.2.0:
     resolution: {integrity: sha512-71ippSywq5Yb7/tVYyGbkBggbU8H3u5Rz56fH60jGFgr8uHwxs+aSKeqmluIVzM0m0kB7xQjKS6qPfd0b2ZoqQ==}
     hasBin: true
+
+  mysql2@3.22.3:
+    resolution: {integrity: sha512-uWWxvZSRvRhtBdh2CdcuK83YcOfPdmEeEYB069bAmPnV93QApDGVPuvCQOLjlh7tYHEWdgQPrn6kosDxHBVLkA==}
+    engines: {node: '>= 8.0'}
+    peerDependencies:
+      '@types/node': '>= 8'
+
+  named-placeholders@1.1.6:
+    resolution: {integrity: sha512-Tz09sEL2EEuv5fFowm419c1+a/jSMiBjI9gHxVLrVdbUkkNUUfjsVYs9pVZu5oCon/kmRh9TfLEObFtkVxmY0w==}
+    engines: {node: '>=8.0.0'}
 
   negotiator@1.0.0:
     resolution: {integrity: sha512-8Ofs/AUQh8MaEcrlq5xOX0CQ9ypTF5dl78mjlMNfOK08fzpgTHQRQPBxcPlEtIw0yRpws+Zo/3r+5WRby7u3Gg==}
@@ -2376,6 +2476,10 @@ packages:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
 
+  sql-escaper@1.3.3:
+    resolution: {integrity: sha512-BsTCV265VpTp8tm1wyIm1xqQCS+Q9NHx2Sr+WcnUrgLrQ6yiDIvHYJV5gHxsj1lMBy2zm5twLaZao8Jd+S8JJw==}
+    engines: {bun: '>=1.0.0', deno: '>=2.0.0', node: '>=12.0.0'}
+
   stack-trace@0.0.10:
     resolution: {integrity: sha512-KGzahc7puUKkzyMt+IqAep+TVNbKP+k2Lmwhub39m1AsTSkaDutx56aDCo+HLDzf/D26BIHTJWNiTG1KAJiQCg==}
 
@@ -2606,10 +2710,10 @@ packages:
     resolution: {integrity: sha512-7dSzzRQ++CKnNI/krKnYRV7JKKPUXMEh61soaHKg9mrWEhzFWhFnxPxGl+69cD1Ou63C13NUPCnmIcrvqCuM6w==}
     engines: {node: '>=12'}
 
-  zod-to-json-schema@3.25.1:
-    resolution: {integrity: sha512-pM/SU9d3YAggzi6MtR4h7ruuQlqKtad8e9S0fmxcMi+ueAK5Korys/aWcV9LIIHTVbj01NdzxcnXSN+O74ZIVA==}
+  zod-to-json-schema@3.25.2:
+    resolution: {integrity: sha512-O/PgfnpT1xKSDeQYSCfRI5Gy3hPf91mKVDuYLUHZJMiDFptvP41MSnWofm8dnCm0256ZNfZIM7DSzuSMAFnjHA==}
     peerDependencies:
-      zod: ^3.25 || ^4
+      zod: ^3.25.28 || ^4
 
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
@@ -3097,7 +3201,7 @@ snapshots:
       openai: 6.25.0(ws@8.19.0)(zod@3.25.76)
       ws: 8.19.0
       zod: 3.25.76
-      zod-to-json-schema: 3.25.1(zod@3.25.76)
+      zod-to-json-schema: 3.25.2(zod@3.25.76)
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -3113,7 +3217,7 @@ snapshots:
       openai: 6.25.0(ws@5.2.4)(zod@3.25.76)
       ws: 8.19.0
       zod: 3.25.76
-      zod-to-json-schema: 3.25.1(zod@3.25.76)
+      zod-to-json-schema: 3.25.2(zod@3.25.76)
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -3220,7 +3324,7 @@ snapshots:
       - openai
       - ws
 
-  '@langchain/community@1.1.20(@aws-crypto/sha256-js@5.2.0)(@aws-sdk/client-s3@3.1045.0)(@aws-sdk/credential-provider-node@3.972.39)(@browserbasehq/sdk@2.7.0)(@browserbasehq/stagehand@1.14.0(@playwright/test@1.58.2)(deepmerge@4.3.1)(dotenv@16.6.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76))(zod@3.25.76))(@ibm-cloud/watsonx-ai@1.7.8)(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(@opentelemetry/api@1.9.1)(@smithy/protocol-http@5.4.0)(@smithy/signature-v4@5.4.0)(@smithy/util-utf8@4.3.0)(@zilliz/milvus2-sdk-node@3.0.0)(cheerio@1.2.0)(epub2@3.0.2(ts-toolbelt@9.6.0))(fast-xml-parser@5.7.2)(ibm-cloud-sdk-core@5.4.8)(jsonwebtoken@9.0.3)(lodash@4.18.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76))(playwright@1.58.2)(ws@8.19.0)':
+  '@langchain/community@1.1.20(@aws-crypto/sha256-js@5.2.0)(@aws-sdk/client-s3@3.1045.0)(@aws-sdk/credential-provider-node@3.972.39)(@browserbasehq/sdk@2.7.0)(@browserbasehq/stagehand@1.14.0(@playwright/test@1.58.2)(deepmerge@4.3.1)(dotenv@16.6.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76))(zod@3.25.76))(@ibm-cloud/watsonx-ai@1.7.8)(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(@opentelemetry/api@1.9.1)(@smithy/protocol-http@5.4.0)(@smithy/signature-v4@5.4.0)(@smithy/util-utf8@4.3.0)(@zilliz/milvus2-sdk-node@3.0.0)(cheerio@1.2.0)(epub2@3.0.2(ts-toolbelt@9.6.0))(fast-xml-parser@5.7.2)(ibm-cloud-sdk-core@5.4.8)(jsonwebtoken@9.0.3)(lodash@4.18.1)(mysql2@3.22.3(@types/node@22.19.18))(openai@6.25.0(ws@8.19.0)(zod@3.25.76))(playwright@1.58.2)(ws@8.19.0)':
     dependencies:
       '@browserbasehq/stagehand': 1.14.0(@playwright/test@1.58.2)(deepmerge@4.3.1)(dotenv@16.6.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76))(zod@3.25.76)
       '@ibm-cloud/watsonx-ai': 1.7.8
@@ -3249,6 +3353,7 @@ snapshots:
       fast-xml-parser: 5.7.2
       jsonwebtoken: 9.0.3
       lodash: 4.18.1
+      mysql2: 3.22.3(@types/node@22.19.18)
       playwright: 1.58.2
       ws: 8.19.0
     transitivePeerDependencies:
@@ -3257,7 +3362,7 @@ snapshots:
       - '@opentelemetry/sdk-trace-base'
       - peggy
 
-  '@langchain/community@1.1.20(@aws-crypto/sha256-js@5.2.0)(@aws-sdk/client-s3@3.1045.0)(@aws-sdk/credential-provider-node@3.972.39)(@browserbasehq/sdk@2.7.0)(@browserbasehq/stagehand@1.14.0(@playwright/test@1.58.2)(deepmerge@4.3.1)(dotenv@17.4.2)(openai@6.25.0(ws@5.2.4)(zod@3.25.76))(zod@3.25.76))(@ibm-cloud/watsonx-ai@1.7.8)(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@5.2.4)(zod@3.25.76)))(@opentelemetry/api@1.9.1)(@smithy/protocol-http@5.4.0)(@smithy/signature-v4@5.4.0)(@smithy/util-utf8@4.3.0)(@zilliz/milvus2-sdk-node@3.0.0)(cheerio@1.2.0)(epub2@3.0.2(ts-toolbelt@9.6.0))(fast-xml-parser@5.7.2)(html-to-text@10.0.0)(ibm-cloud-sdk-core@5.4.8)(jsonwebtoken@9.0.3)(lodash@4.18.1)(openai@6.25.0(ws@5.2.4)(zod@3.25.76))(playwright@1.58.2)(ws@5.2.4)':
+  '@langchain/community@1.1.20(@aws-crypto/sha256-js@5.2.0)(@aws-sdk/client-s3@3.1045.0)(@aws-sdk/credential-provider-node@3.972.39)(@browserbasehq/sdk@2.7.0)(@browserbasehq/stagehand@1.14.0(@playwright/test@1.58.2)(deepmerge@4.3.1)(dotenv@17.4.2)(openai@6.25.0(ws@5.2.4)(zod@3.25.76))(zod@3.25.76))(@ibm-cloud/watsonx-ai@1.7.8)(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@5.2.4)(zod@3.25.76)))(@opentelemetry/api@1.9.1)(@smithy/protocol-http@5.4.0)(@smithy/signature-v4@5.4.0)(@smithy/util-utf8@4.3.0)(@zilliz/milvus2-sdk-node@3.0.0)(cheerio@1.2.0)(epub2@3.0.2(ts-toolbelt@9.6.0))(fast-xml-parser@5.7.2)(html-to-text@10.0.0)(ibm-cloud-sdk-core@5.4.8)(jsonwebtoken@9.0.3)(lodash@4.18.1)(mysql2@3.22.3(@types/node@22.19.18))(openai@6.25.0(ws@5.2.4)(zod@3.25.76))(playwright@1.58.2)(ws@5.2.4)':
     dependencies:
       '@browserbasehq/stagehand': 1.14.0(@playwright/test@1.58.2)(deepmerge@4.3.1)(dotenv@17.4.2)(openai@6.25.0(ws@5.2.4)(zod@3.25.76))(zod@3.25.76)
       '@ibm-cloud/watsonx-ai': 1.7.8
@@ -3287,6 +3392,7 @@ snapshots:
       html-to-text: 10.0.0
       jsonwebtoken: 9.0.3
       lodash: 4.18.1
+      mysql2: 3.22.3(@types/node@22.19.18)
       playwright: 1.58.2
       ws: 5.2.4
     transitivePeerDependencies:
@@ -3308,7 +3414,7 @@ snapshots:
       p-retry: 4.6.2
       uuid: 10.0.0
       zod: 3.25.76
-      zod-to-json-schema: 3.25.1(zod@3.25.76)
+      zod-to-json-schema: 3.25.2(zod@3.25.76)
     transitivePeerDependencies:
       - '@opentelemetry/api'
       - '@opentelemetry/exporter-trace-otlp-proto'
@@ -3365,7 +3471,7 @@ snapshots:
     optionalDependencies:
       '@langchain/core': 1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76))
 
-  '@langchain/langgraph@1.2.0(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(zod-to-json-schema@3.25.1(zod@3.25.76))(zod@3.25.76)':
+  '@langchain/langgraph@1.2.0(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(zod-to-json-schema@3.25.2(zod@3.25.76))(zod@3.25.76)':
     dependencies:
       '@langchain/core': 1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76))
       '@langchain/langgraph-checkpoint': 1.0.0(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))
@@ -3374,15 +3480,15 @@ snapshots:
       uuid: 10.0.0
       zod: 3.25.76
     optionalDependencies:
-      zod-to-json-schema: 3.25.1(zod@3.25.76)
+      zod-to-json-schema: 3.25.2(zod@3.25.76)
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@langchain/mcp-adapters@1.1.3(@cfworker/json-schema@4.1.1)(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(@langchain/langgraph@1.2.0(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(zod-to-json-schema@3.25.1(zod@3.25.76))(zod@3.25.76))':
+  '@langchain/mcp-adapters@1.1.3(@cfworker/json-schema@4.1.1)(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(@langchain/langgraph@1.2.0(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(zod-to-json-schema@3.25.2(zod@3.25.76))(zod@3.25.76))':
     dependencies:
       '@langchain/core': 1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76))
-      '@langchain/langgraph': 1.2.0(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(zod-to-json-schema@3.25.1(zod@3.25.76))(zod@3.25.76)
+      '@langchain/langgraph': 1.2.0(@langchain/core@1.1.29(@opentelemetry/api@1.9.1)(openai@6.25.0(ws@8.19.0)(zod@3.25.76)))(zod-to-json-schema@3.25.2(zod@3.25.76))(zod@3.25.76)
       '@modelcontextprotocol/sdk': 1.27.1(@cfworker/json-schema@4.1.1)(zod@3.25.76)
       debug: 4.4.3
       zod: 3.25.76
@@ -3398,7 +3504,7 @@ snapshots:
       js-tiktoken: 1.0.21
       openai: 4.104.0(ws@8.19.0)(zod@3.25.76)
       zod: 3.25.76
-      zod-to-json-schema: 3.25.1(zod@3.25.76)
+      zod-to-json-schema: 3.25.2(zod@3.25.76)
     transitivePeerDependencies:
       - encoding
       - ws
@@ -3449,7 +3555,7 @@ snapshots:
       pkce-challenge: 5.0.1
       raw-body: 3.0.2
       zod: 3.25.76
-      zod-to-json-schema: 3.25.1(zod@3.25.76)
+      zod-to-json-schema: 3.25.2(zod@3.25.76)
     optionalDependencies:
       '@cfworker/json-schema': 4.1.1
     transitivePeerDependencies:
@@ -3947,6 +4053,8 @@ snapshots:
 
   asynckit@0.4.0: {}
 
+  aws-ssl-profiles@1.1.2: {}
+
   axios@1.13.6(debug@4.4.3):
     dependencies:
       follow-redirects: 1.15.11(debug@4.4.3)
@@ -4123,6 +4231,8 @@ snapshots:
   deepmerge@4.3.1: {}
 
   delayed-stream@1.0.0: {}
+
+  denque@2.1.0: {}
 
   depd@2.0.0: {}
 
@@ -4333,6 +4443,10 @@ snapshots:
 
   function-bind@1.1.2: {}
 
+  generate-function@2.3.1:
+    dependencies:
+      is-property: 1.0.2
+
   generic-pool@3.9.0: {}
 
   get-caller-file@2.0.5: {}
@@ -4450,6 +4564,8 @@ snapshots:
   is-network-error@1.3.1: {}
 
   is-promise@4.0.0: {}
+
+  is-property@1.0.2: {}
 
   is-stream@2.0.1: {}
 
@@ -4572,6 +4688,8 @@ snapshots:
 
   lru-cache@9.1.2: {}
 
+  lru.min@1.1.4: {}
+
   math-expression-evaluator@2.0.7: {}
 
   math-intrinsics@1.1.0: {}
@@ -4597,6 +4715,22 @@ snapshots:
   ms@2.1.3: {}
 
   mustache@4.2.0: {}
+
+  mysql2@3.22.3(@types/node@22.19.18):
+    dependencies:
+      '@types/node': 22.19.18
+      aws-ssl-profiles: 1.1.2
+      denque: 2.1.0
+      generate-function: 2.3.1
+      iconv-lite: 0.7.2
+      long: 5.3.2
+      lru.min: 1.1.4
+      named-placeholders: 1.1.6
+      sql-escaper: 1.3.3
+
+  named-placeholders@1.1.6:
+    dependencies:
+      lru.min: 1.1.4
 
   negotiator@1.0.0: {}
 
@@ -4938,6 +5072,8 @@ snapshots:
 
   source-map@0.6.1: {}
 
+  sql-escaper@1.3.3: {}
+
   stack-trace@0.0.10: {}
 
   statuses@2.0.2: {}
@@ -5139,7 +5275,7 @@ snapshots:
       y18n: 5.0.8
       yargs-parser: 21.1.1
 
-  zod-to-json-schema@3.25.1(zod@3.25.76):
+  zod-to-json-schema@3.25.2(zod@3.25.76):
     dependencies:
       zod: 3.25.76
 
